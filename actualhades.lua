@@ -3,7 +3,7 @@ game.Players.LocalPlayer:GetPropertyChangedSignal("UserId"):Connect(function()
 end)
 
 local blacklistedNames = {
-    "BadUser1",
+    "Rasyajasa",
     "ToxicPlayer",
     "ExploitUser",
     "AnnoyingPlayer",
