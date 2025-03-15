@@ -4,10 +4,10 @@ end)
 
 local blacklistedNames = {
     "CahyaXyZp",
-    "Rasyajasa",
-    "ExploitUser",
-    "AnnoyingPlayer",
-    "Cheater123"
+    "gay",
+    "gay",
+    "gay",
+    "gay"
 }
 
 local player = game.Players.LocalPlayer
