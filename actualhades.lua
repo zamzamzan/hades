@@ -135,6 +135,23 @@ Tab:AddDropdown({
     end
 })
 
+Tab:AddButton({
+    Name = "Teleport To Merchant",
+    Callback = function()
+        local merchant = workspace:FindFirstChild("NPC") and workspace.NPC:FindFirstChild("Merchant")
+        if merchant and merchant:FindFirstChild("Kvjesm") then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = merchant.Kvjesm.Head.CFrame
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "Merchant/Kvjesm not spawned",
+                Image = "rbxassetid://7734021118",
+                Time = 3
+            })
+        end
+    end
+})
+
 local InstructionTab = Window:MakeTab({
     Name = "Instruction",
     Icon = "rbxassetid://8997386648",
