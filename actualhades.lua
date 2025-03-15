@@ -4,7 +4,7 @@ end)
 
 local blacklistedNames = {
     "CahyaXyZp",
-    "ToxicPlayer",
+    "Rasyajasa",
     "ExploitUser",
     "AnnoyingPlayer",
     "Cheater123"
@@ -19,7 +19,7 @@ for _, name in ipairs(blacklistedNames) do
     end
 end
 
-print("You are not blacklisted. Script running...")local HttpService = game:GetService("HttpService")
+local HttpService = game:GetService("HttpService")
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
