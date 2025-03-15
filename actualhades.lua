@@ -4,9 +4,6 @@ end)
 
 local blacklistedNames = {
     "CahyaXyZp",
-    "gay",
-    "gay",
-    "gay",
     "gay"
 }
 
@@ -20,7 +17,6 @@ for _, name in ipairs(blacklistedNames) do
 end
 
 local HttpService = game:GetService("HttpService")
-
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
@@ -120,15 +116,15 @@ local npcPositions = {
     KoinSynths = Vector3.new(-261, 4, -876),
     Luna = Vector3.new(-343, 43, -654),
     Midori = Vector3.new(-347, 42, -679),
-    Mina = Vector3.new(-261, 42, -514)
-    Binun = Vector3.new(-329, 42, -495)
-    Impact = Vector.new3(-362, 42, -591)
+    Mina = Vector3.new(-261, 42, -514),
+    Binun = Vector3.new(-329, 42, -495),
+    Impact = Vector3.new(-362, 42, -591)
 }
 
 Tab:AddDropdown({
     Name = "Teleport To NPC",
     Default = "",
-    Options = {"Aqua", "Gwa", "GwaMeachine", "Henben", "KoinSynths", "Luna", "Midori", "Mina", "Binjun", "Impact"},
+    Options = {"Aqua", "Gwa", "GwaMeachine", "Henben", "KoinSynths", "Luna", "Midori", "Mina", "Binun", "Impact"},
     Callback = function(Value)
         local targetPos = npcPositions[Value]
         if targetPos then
