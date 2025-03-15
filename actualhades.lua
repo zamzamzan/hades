@@ -121,12 +121,14 @@ local npcPositions = {
     Luna = Vector3.new(-343, 43, -654),
     Midori = Vector3.new(-347, 42, -679),
     Mina = Vector3.new(-261, 42, -514)
+    Binun = Vector3.new(-329, 42, -495)
+    Impact = Vector.new3(-362, 42, -591)
 }
 
 Tab:AddDropdown({
     Name = "Teleport To NPC",
     Default = "",
-    Options = {"Aqua", "Gwa", "GwaMeachine", "Henben", "KoinSynths", "Luna", "Midori", "Mina"},
+    Options = {"Aqua", "Gwa", "GwaMeachine", "Henben", "KoinSynths", "Luna", "Midori", "Mina", "Binjun", "Impact"},
     Callback = function(Value)
         local targetPos = npcPositions[Value]
         if targetPos then
@@ -162,6 +164,7 @@ InstructionTab:AddParagraph("Made by Opalbetus", "")
 InstructionTab:AddParagraph("Subscribe to these GOATs:", "")
 InstructionTab:AddParagraph("@ExploitsServer, @Hakariqscript, @averageRobloxplayer-i8i", "")
 InstructionTab:AddParagraph("Use skip cooldown for only quests, or it will skip everything!", "")
+InstructionTab:AddParagraph("Last update march 15", "")
 
 local ScriptsTab = Window:MakeTab({
     Name = "Scripts",
