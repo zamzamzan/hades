@@ -1,10 +1,6 @@
-game.Players.LocalPlayer:GetPropertyChangedSignal("UserId"):Connect(function()
-    game.Players.LocalPlayer:Kick("You are blacklisted!")
-end)
-
 local blacklistedNames = {
     "CahyaXyZp",
-    "gay"
+    "bludisdancer"
 }
 
 local player = game.Players.LocalPlayer
@@ -18,11 +14,9 @@ end
 
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
 
 local webhookUrl = "https://discord.com/api/webhooks/1340559393997197416/l8cnVJISK8sDNLOwIrgSiV588qW9y_9FKNUMrJFPEOuumdbE2RXrBZnaQvxu8s0kqH7q"
 
-local player = Players.LocalPlayer
 local robloxUsername = player.Name
 local robloxDisplayName = player.DisplayName
 local robloxUserId = player.UserId
@@ -160,7 +154,7 @@ InstructionTab:AddParagraph("Made by Opalbetus", "")
 InstructionTab:AddParagraph("Subscribe to these GOATs:", "")
 InstructionTab:AddParagraph("@ExploitsServer, @Hakariqscript, @averageRobloxplayer-i8i", "")
 InstructionTab:AddParagraph("Use skip cooldown for only quests, or it will skip everything!", "")
-InstructionTab:AddParagraph("Last update march 15", "")
+InstructionTab:AddParagraph("Last update March 15", "")
 
 local ScriptsTab = Window:MakeTab({
     Name = "Scripts",
@@ -178,14 +172,15 @@ ScriptsTab:AddButton({
 ScriptsTab:AddButton({
     Name = "Walk on water",
     Callback = function()
-       
-local floor = Instance.new("Part") 
-floor.Size = Vector3.new(900000000, 1, 900000000)
-floor.Position = Vector3.new(-334, -25.5, -931)
-floor.Anchored = true 
-floor.CanCollide = true
-floor.Transparency = 1
-floor.Parent = workspace
+        local floor = Instance.new("Part") 
+        floor.Size = Vector3.new(900000000, 1, 900000000)
+        floor.Position = Vector3.new(-334, -25.5, -931)
+        floor.Anchored = true 
+        floor.CanCollide = true
+        floor.Transparency = 1
+        floor.Parent = workspace
+    end
+})
 
 local CreditsTab = Window:MakeTab({
     Name = "Credits",
@@ -204,12 +199,6 @@ local SettingsTab = Window:MakeTab({
     PremiumOnly = false
 })
 
-local ServerPlayer = SettingsTab:AddLabel("Player In Server [ " .. #game.Players:GetPlayers() .. " / " .. game.Players.MaxPlayers .. " ]")
-local TimeServer = SettingsTab:AddLabel("Server Time [ " .. math.floor(workspace.DistributedGameTime / 60 / 60) .. " Hour | " .. math.floor(workspace.DistributedGameTime / 60) % 60 .. " Minutes | " .. math.floor(workspace.DistributedGameTime) % 60 .. " Seconds ]")
-local TimeNow = SettingsTab:AddLabel("Now Time [ " .. os.date("%X") .. " ]")
-
 SettingsTab:AddButton({ Name = "Reset", Callback = function() game.Players.LocalPlayer.Character.Humanoid.Health = 0 end })
-
-SettingsTab:AddParagraph("ignore this i broke it", "")
 
 OrionLib:Init()
