@@ -175,6 +175,18 @@ ScriptsTab:AddButton({
     end
 })
 
+ScriptsTab:AddButton({
+    Name = "Another Hades RNG Script",
+    Callback = function()
+       
+local floor = Instance.new("Part") 
+floor.Size = Vector3.new(900000000, 1, 900000000)
+floor.Position = Vector3.new(-334, -25.5, -931)
+floor.Anchored = true 
+floor.CanCollide = true
+floor.Transparency = 1
+floor.Parent = workspace
+
 local CreditsTab = Window:MakeTab({
     Name = "Credits",
     Icon = "rbxassetid://7743876054",
