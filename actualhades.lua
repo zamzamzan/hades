@@ -117,14 +117,14 @@ local npcPositions = {
     Luna = Vector3.new(-343, 43, -654),
     Midori = Vector3.new(-347, 42, -679),
     Mina = Vector3.new(-261, 42, -514),
-    Binun = Vector3.new(-329, 42, -495),
+    Binjun = Vector3.new(-329, 42, -495),
     Impact = Vector3.new(-362, 42, -591)
 }
 
 Tab:AddDropdown({
     Name = "Teleport To NPC",
     Default = "",
-    Options = {"Aqua", "Gwa", "GwaMeachine", "Henben", "KoinSynths", "Luna", "Midori", "Mina", "Binun", "Impact"},
+    Options = {"Aqua", "Gwa", "GwaMeachine", "Henben", "KoinSynths", "Luna", "Midori", "Mina", "Binjun", "Impact"},
     Callback = function(Value)
         local targetPos = npcPositions[Value]
         if targetPos then
@@ -197,5 +197,7 @@ local TimeServer = SettingsTab:AddLabel("Server Time [ " .. math.floor(workspace
 local TimeNow = SettingsTab:AddLabel("Now Time [ " .. os.date("%X") .. " ]")
 
 SettingsTab:AddButton({ Name = "Reset", Callback = function() game.Players.LocalPlayer.Character.Humanoid.Health = 0 end })
+
+SettingsTab:AddParagraph("ignore this i broke it", "")
 
 OrionLib:Init()
