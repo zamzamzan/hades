@@ -176,7 +176,7 @@ ScriptsTab:AddButton({
 })
 
 ScriptsTab:AddButton({
-    Name = "Another Hades RNG Script",
+    Name = "Walk on water",
     Callback = function()
        
 local floor = Instance.new("Part") 
