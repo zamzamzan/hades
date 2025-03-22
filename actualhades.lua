@@ -189,8 +189,7 @@ local CreditsTab = Window:MakeTab({
 })
 
 CreditsTab:AddParagraph("opalbetus ", "")
-CreditsTab:AddParagraph("Hakariqscript ", "")
-CreditsTab:AddParagraph("averageRobloxplayer-i8i ", "")
+CreditsTab:AddParagraph("Hakariqscript (yt)", "")
 
 local SettingsTab = Window:MakeTab({
     Name = "Settings",
