@@ -188,10 +188,9 @@ local CreditsTab = Window:MakeTab({
     PremiumOnly = false
 })
 
-CreditsTab:AddParagraph("Pall (Discord)", "")
-CreditsTab:AddParagraph("Scripter (YouTube, Discord)", "")
-CreditsTab:AddParagraph("Hakariqscript (YouTube)", "")
-CreditsTab:AddParagraph("averageRobloxplayer-i8i (YouTube)", "")
+CreditsTab:AddParagraph("opalbetus ", "")
+CreditsTab:AddParagraph("Hakariqscript ", "")
+CreditsTab:AddParagraph("averageRobloxplayer-i8i ", "")
 
 local SettingsTab = Window:MakeTab({
     Name = "Settings",
