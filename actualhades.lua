@@ -151,8 +151,8 @@ local InstructionTab = Window:MakeTab({
 })
 
 InstructionTab:AddParagraph("Made by Opalbetus", "")
-InstructionTab:AddParagraph("Subscribe to these GOATs:", "")
-InstructionTab:AddParagraph("@ExploitsServer, @Hakariqscript, @averageRobloxplayer-i8i", "")
+InstructionTab:AddParagraph("Subscribe to this GOAT:", "")
+InstructionTab:AddParagraph(" @Hakariqscript", "")
 InstructionTab:AddParagraph("Use skip cooldown for only quests, or it will skip everything!", "")
 InstructionTab:AddParagraph("Last update March 15", "")
 
