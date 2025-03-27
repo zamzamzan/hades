@@ -182,6 +182,17 @@ ScriptsTab:AddButton({
     end
 })
 
+ScriptsTab:AddButton({
+    Name = "Anti AFK",
+    Callback = function()
+       local VirtualUser = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+end)
+   end
+})
+
 local CreditsTab = Window:MakeTab({
     Name = "Credits",
     Icon = "rbxassetid://7743876054",
