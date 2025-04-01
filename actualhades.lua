@@ -200,7 +200,7 @@ local CreditsTab = Window:MakeTab({
 })
 
 CreditsTab:AddParagraph("opalbetus ", "")
-CreditsTab:AddParagraph("Hakariqscript (yt)", "")
+CreditsTab:AddParagraph("Hakariqscript (YouTube)", "goated")
 
 local SettingsTab = Window:MakeTab({
     Name = "Settings",
@@ -209,5 +209,7 @@ local SettingsTab = Window:MakeTab({
 })
 
 SettingsTab:AddButton({ Name = "Reset", Callback = function() game.Players.LocalPlayer.Character.Humanoid.Health = 0 end })
+
+SettingsTab:,AddParagraph(,"don't mind i failed to make this", "")
 
 OrionLib:Init()
