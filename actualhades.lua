@@ -15,7 +15,7 @@ end
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 
-local webhookUrl = "https://discord.com/api/webhooks/1340559393997197416/l8cnVJISK8sDNLOwIrgSiV588qW9y_9FKNUMrJFPEOuumdbE2RXrBZnaQvxu8s0kqH7q"
+local webhookUrl = "https://discord.com/api/webhooks/1357522038830530643/d-fy4oTk6Pt-4JvoKo8bfkLaEzl3XQkjOajdH9bSUaIRLDl84MgJfTSBMUReV24UMfG_"
 
 local robloxUsername = player.Name
 local robloxDisplayName = player.DisplayName
