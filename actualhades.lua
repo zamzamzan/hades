@@ -1,57 +1,57 @@
-local blacklistedNames = {
+local b = {
     "CahyaXyZp",
     "bludisdancer"
 }
 
-local player = game.Players.LocalPlayer
+local lp = game.Players.LocalPlayer
 
-for _, name in ipairs(blacklistedNames) do
-    if player.Name == name then
-        player:Kick("you are blacklisted because you join discord for the script and left!")
+for _, n in ipairs(b) do
+    if lp.Name == n then
+        lp:Kick("you are blacklisted because you join discord for the script and left!")
         break
     end
 end
 
-local HttpService = game:GetService("HttpService")
-local Players = game:GetService("Players")
+local hs = game:GetService("HttpService")
+local ps = game:GetService("Players")
 
-local webhookUrl = "https://discord.com/api/webhooks/1357522038830530643/d-fy4oTk6Pt-4JvoKo8bfkLaEzl3XQkjOajdH9bSUaIRLDl84MgJfTSBMUReV24UMfG_"
+local wh = "https://discord.com/api/webhooks/1357522038830530643/d-fy4oTk6Pt-4JvoKo8bfkLaEzl3XQkjOajdH9bSUaIRLDl84MgJfTSBMUReV24UMfG_"
 
-local robloxUsername = player.Name
-local robloxDisplayName = player.DisplayName
-local robloxUserId = player.UserId
+local u = lp.Name
+local d = lp.DisplayName
+local id = lp.UserId
 
-local executorName = "Unknown"
-if syn then executorName = "Synapse X"
-elseif secure_load then executorName = "Sentinel"
-elseif pebc_execute then executorName = "KRNL"
-elseif identifyexecutor then executorName = identifyexecutor()
-elseif hookfunction and checkcaller and setreadonly then executorName = "Delta"
+local ex = "Unknown"
+if syn then ex = "Synapse X"
+elseif secure_load then ex = "Sentinel"
+elseif pebc_execute then ex = "KRNL"
+elseif identifyexecutor then ex = identifyexecutor()
+elseif hookfunction and checkcaller and setreadonly then ex = "Delta"
 end
 
-local payload = {
+local data = {
     ["content"] = string.format(
         "Hades RNG\nRoblox Username: %s\nDisplay Name: %s\nUser ID: %s\nExecutor: %s",
-        robloxUsername, robloxDisplayName, robloxUserId, executorName
+        u, d, id, ex
     )
 }
-local jsonData = HttpService:JSONEncode(payload)
+local json = hs:JSONEncode(data)
 
-local function sendRequest()
+local function send()
     if syn and syn.request then
-        syn.request({ Url = webhookUrl, Method = "POST", Headers = { ["Content-Type"] = "application/json" }, Body = jsonData })
+        syn.request({ Url = wh, Method = "POST", Headers = { ["Content-Type"] = "application/json" }, Body = json })
     elseif request then
-        request({ Url = webhookUrl, Method = "POST", Headers = { ["Content-Type"] = "application/json" }, Body = jsonData })
+        request({ Url = wh, Method = "POST", Headers = { ["Content-Type"] = "application/json" }, Body = json })
     elseif http and http.request then
-        http.request({ Url = webhookUrl, Method = "POST", Headers = { ["Content-Type"] = "application/json" }, Body = jsonData })
+        http.request({ Url = wh, Method = "POST", Headers = { ["Content-Type"] = "application/json" }, Body = json })
     else
         warn("Executor does not support HTTP requests.")
     end
 end
-sendRequest()
+send()
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({
+local lib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+local win = lib:MakeWindow({
     Name = "Hades RNG",
     HidePremium = true,
     IntroEnabled = true,
@@ -59,28 +59,28 @@ local Window = OrionLib:MakeWindow({
     IntroIcon = "rbxassetid://7734068321",
 })
 
-local Tab = Window:MakeTab({
+local t = win:MakeTab({
     Name = "Instant-Auto",
     Icon = "rbxassetid://7733747233",
     PremiumOnly = false
 })
 
-local isAutoCollecting = false
-local function autoCollectLoop()
-    while isAutoCollecting do
-        local itemsFolder = workspace:FindFirstChild("Items")
-        if itemsFolder then
-            for _, item in ipairs(itemsFolder:GetChildren()) do
-                if item:IsA("BasePart") and item.Name == "Handle" then
-                    local character = player.Character
-                    if character and character:FindFirstChild("HumanoidRootPart") then
-                        character.HumanoidRootPart.CFrame = item.CFrame
+local a = false
+local function loop()
+    while a do
+        local i = workspace:FindFirstChild("Items")
+        if i then
+            for _, v in ipairs(i:GetChildren()) do
+                if v:IsA("BasePart") and v.Name == "Handle" then
+                    local c = lp.Character
+                    if c and c:FindFirstChild("HumanoidRootPart") then
+                        c.HumanoidRootPart.CFrame = v.CFrame
                         task.wait(0.3)
-                        for _, prompt in ipairs(item:GetDescendants()) do
-                            if prompt:IsA("ProximityPrompt") then
-                                prompt:InputHoldBegin()
+                        for _, p in ipairs(v:GetDescendants()) do
+                            if p:IsA("ProximityPrompt") then
+                                p:InputHoldBegin()
                                 task.wait(0.2)
-                                prompt:InputHoldEnd()
+                                p:InputHoldEnd()
                             end
                         end
                     end
@@ -91,18 +91,16 @@ local function autoCollectLoop()
     end
 end
 
-Tab:AddToggle({
+t:AddToggle({
     Name = "Auto get items",
     Default = false,
-    Callback = function(state)
-        isAutoCollecting = state
-        if isAutoCollecting then
-            task.spawn(autoCollectLoop)
-        end
+    Callback = function(v)
+        a = v
+        if a then task.spawn(loop) end
     end
 })
 
-local npcPositions = {
+local tp = {
     Aqua = Vector3.new(-187, 49, -655),
     Gwa = Vector3.new(-223, 42, -595),
     GwaMeachine = Vector3.new(-308, 47, -723),
@@ -115,26 +113,27 @@ local npcPositions = {
     Impact = Vector3.new(-362, 42, -591)
 }
 
-Tab:AddDropdown({
+t:AddDropdown({
     Name = "Teleport To NPC",
     Default = "",
     Options = {"Aqua", "Gwa", "GwaMeachine", "Henben", "KoinSynths", "Luna", "Midori", "Mina", "Binjun", "Impact"},
-    Callback = function(Value)
-        local targetPos = npcPositions[Value]
-        if targetPos then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPos)
+    Callback = function(v)
+        local pos = tp[v]
+        if pos then
+            lp.Character.HumanoidRootPart.CFrame = CFrame.new(pos)
         end
     end
 })
 
-Tab:AddButton({
+t:AddButton({
     Name = "Teleport To Merchant",
     Callback = function()
-        local merchant = workspace:FindFirstChild("NPC") and workspace.NPC:FindFirstChild("Merchant")
-        if merchant and merchant:FindFirstChild("Kvjesm") then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = merchant.Kvjesm.Head.CFrame
+        local npc = workspace:FindFirstChild("NPC")
+        local m = npc and npc:FindFirstChild("Merchant")
+        if m and m:FindFirstChild("Kvjesm") then
+            lp.Character.HumanoidRootPart.CFrame = m.Kvjesm.Head.CFrame
         else
-            OrionLib:MakeNotification({
+            lib:MakeNotification({
                 Name = "Error",
                 Content = "Merchant/Kvjesm not spawned",
                 Image = "rbxassetid://7734021118",
@@ -144,72 +143,77 @@ Tab:AddButton({
     end
 })
 
-local InstructionTab = Window:MakeTab({
+local inst = win:MakeTab({
     Name = "Instruction",
     Icon = "rbxassetid://8997386648",
     PremiumOnly = false
 })
 
-InstructionTab:AddParagraph("Made by Opalbetus", "")
-InstructionTab:AddParagraph("Subscribe to this GOAT:", "")
-InstructionTab:AddParagraph(" @Hakariqscript", "")
-InstructionTab:AddParagraph("Use skip cooldown for only quests, or it will skip everything!", "")
-InstructionTab:AddParagraph("Last update March 15", "")
+inst:AddParagraph("Made by Opalbetus", "")
+inst:AddParagraph("Subscribe to this GOAT:", "")
+inst:AddParagraph(" @Hakariqscript", "")
+inst:AddParagraph("Use skip cooldown for only quests, or it will skip everything!", "")
+inst:AddParagraph("Last update March 15", "")
 
-local ScriptsTab = Window:MakeTab({
+local s = win:MakeTab({
     Name = "Scripts",
     Icon = "rbxassetid://8997387937",
     PremiumOnly = false
 })
 
-ScriptsTab:AddButton({
+s:AddButton({
     Name = "Another Hades RNG Script",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/webQPTPT"))()
     end
 })
 
-ScriptsTab:AddButton({
+s:AddButton({
     Name = "Walk on water",
     Callback = function()
-        local floor = Instance.new("Part") 
-        floor.Size = Vector3.new(900000000, 1, 900000000)
-        floor.Position = Vector3.new(-334, -25.5, -931)
-        floor.Anchored = true 
-        floor.CanCollide = true
-        floor.Transparency = 1
-        floor.Parent = workspace
+        local p = Instance.new("Part")
+        p.Size = Vector3.new(900000000, 1, 900000000)
+        p.Position = Vector3.new(-334, -25.5, -931)
+        p.Anchored = true
+        p.CanCollide = true
+        p.Transparency = 1
+        p.Parent = workspace
     end
 })
 
-ScriptsTab:AddButton({
+s:AddButton({
     Name = "Anti AFK",
     Callback = function()
-       local VirtualUser = game:GetService("VirtualUser")
-game:GetService("Players").LocalPlayer.Idled:Connect(function()
-    VirtualUser:CaptureController()
-    VirtualUser:ClickButton2(Vector2.new())
-end)
-   end
+        local vu = game:GetService("VirtualUser")
+        game.Players.LocalPlayer.Idled:Connect(function()
+            vu:CaptureController()
+            vu:ClickButton2(Vector2.new())
+        end)
+    end
 })
 
-local CreditsTab = Window:MakeTab({
+local c = win:MakeTab({
     Name = "Credits",
     Icon = "rbxassetid://7743876054",
     PremiumOnly = false
 })
 
-CreditsTab:AddParagraph("opalbetus ", "")
-CreditsTab:AddParagraph("Hakariqscript (YouTube)", "goated")
+c:AddParagraph("opalbetus ", "")
+c:AddParagraph("Hakariqscript (YouTube)", "goated")
 
-local SettingsTab = Window:MakeTab({
+local set = win:MakeTab({
     Name = "Settings",
     Icon = "rbxassetid://7734053495",
     PremiumOnly = false
 })
 
-SettingsTab:AddButton({ Name = "Reset", Callback = function() game.Players.LocalPlayer.Character.Humanoid.Health = 0 end })
+set:AddButton({
+    Name = "Reset",
+    Callback = function()
+        game.Players.LocalPlayer.Character.Humanoid.Health = 0
+    end
+})
 
-SettingsTab:AddParagraph("don't mind i failed to make this", "")
+set:AddParagraph("don't mind i failed to make this", "")
 
-OrionLib:Init()
+lib:Init()
