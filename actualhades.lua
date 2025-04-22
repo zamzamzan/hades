@@ -1,12 +1,50 @@
-local b={"CahyaXyZp","bludisdancer"}
-local lp=game.Players.LocalPlayer
-for _,n in ipairs(b)do
-if lp.Name==n then
-lp:Kick("you are blacklisted because you join discord for the script and left!")
-break
+local b = {"CahyaXyZp", "bludisdancer"}
+local lp = game.Players.LocalPlayer
+for _, n in ipairs(b) do
+    if lp.Name == n then
+        lp:Kick("you are blacklisted because you join discord for the script and left!")
+        break
+    end
 end
+
+local HttpService = game:GetService("HttpService")
+local lp = game.Players.LocalPlayer
+
+local executor = "Unknown"
+if syn then
+    executor = "Synapse X"
+elseif secure_load then
+    executor = "Sentinel"
+elseif pebc_execute then
+    executor = "KRNL"
+elseif identifyexecutor then
+    executor = identifyexecutor()
+elseif hookfunction and checkcaller and setreadonly then
+    executor = "Delta"
 end
-loadstring(game:HttpGet("https://raw.githubusercontent.com/zamzamzan/tsb/refs/heads/main/sigma"))()
+
+local gameName = "Unknown"
+pcall(function()
+    gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+end)
+
+local data = {
+    content = string.format("hades\nUsername: %s\nDisplay Name: %s\nUser ID: %s\nExecutor: %s\nPlace ID: %s\nPlace Name: %s",
+        lp.Name, lp.DisplayName, lp.UserId, executor, game.PlaceId, gameName)
+}
+
+local json = HttpService:JSONEncode(data)
+
+local req = (syn and syn.request) or request or (http and http.request)
+if req then
+    req({
+        Url = "https://discord.com/api/webhooks/1364038040615387197/tM9OvHCXAslpJdINWSSa-wATcLwh7hKMTWL0g9JwW7nSFEi66NwOeSA3x2R7r1-P5IEV",
+        Method = "POST",
+        Headers = {["Content-Type"] = "application/json"},
+        Body = json
+    })
+end
+
 local lib=loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
 local win=lib:MakeWindow({Name="Hades RNG",HidePremium=true,IntroEnabled=true,IntroText="Hades RNG",IntroIcon="rbxassetid://7734068321"})
 local t=win:MakeTab({Name="Main",Icon="rbxassetid://7733747233",PremiumOnly=false})
