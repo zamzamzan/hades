@@ -6,7 +6,7 @@ lp:Kick("you are blacklisted because you join discord for the script and left!")
 break
 end
 end
-loadstring(game:HttpGet("https://pastebin.com/raw/sGxBvPDM"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zamzamzan/tsb/refs/heads/main/sigma"))()
 local lib=loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
 local win=lib:MakeWindow({Name="Hades RNG",HidePremium=true,IntroEnabled=true,IntroText="Hades RNG",IntroIcon="rbxassetid://7734068321"})
 local t=win:MakeTab({Name="Main",Icon="rbxassetid://7733747233",PremiumOnly=false})
