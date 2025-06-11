@@ -12,7 +12,7 @@ gName=game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name en
 local data={content=("hades\nUsername: "..lp.Name.."\nDisplay Name: "..lp.DisplayName.."\nUser ID: "..lp.UserId.."\nExecutor: "..exec.."\nPlace ID: "..game.PlaceId.."\nPlace Name: "..gName.."\nCountry: ".. kizzy_has_a_small_dick)}
 local js=http:JSONEncode(data)
 local req=syn and syn.request or request or http and http.request
-if req then req({Url="https://discord.com/api/webhooks/1368031977042612244/68WwHgHEZXuht_wFh33LEinLFNUGKcTDLIR7hduf2jdoici702tvXXj_hptMhnGHxvCU",Method="POST",Headers={["Content-Type"]="application/json"},Body=js})end
+if req then req({Url="no gey",Method="POST",Headers={["Content-Type"]="application/json"},Body=js})end
 
 local p = game:GetService("Players").LocalPlayer
 local r = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
